@@ -32,6 +32,8 @@
 </template>
 <script>
 
+import {db} from '../firebase'
+
 export default {
   name: 'Login',
   data () {
@@ -42,6 +44,8 @@ export default {
     }
   },
   created () {
+    var a = db.ref('login').on('child_added', snapshot => console.log(snapshot.val()))
+    console.log(a)
     console.log(this.login)
   },
   methods: {
